@@ -1,0 +1,97 @@
+.quote{
+    padding: 6.5rem 0;
+    background-color: $gray-color;
+    // &-container{
+    //     @include flexbox(center,space-between);
+    // }
+    &-content{
+        @include flexbox(center,space-between);
+        padding-left: 5rem;
+        padding-right:5rem;
+        outline: none;
+    }
+    &-arrow{
+        padding:2rem;
+        font-size: 3rem;
+        color: $text-color;
+        cursor: pointer;
+    }
+    &-icon{
+        @include size(15rem);
+        @include flexbox(center,center);
+        flex-shrink:0;
+        border: 3px solid $third-color;
+        margin-right: 6rem;
+    }
+    &-image{
+        @include size(21rem);
+        border-radius: 100rem;
+        object-fit: cover;
+        margin-right: 2.5rem;
+    }
+    // &-info{
+    //     margin-left:6rem;
+    // }
+    &-desc{
+        font-size: 2.4rem;
+        font-family: $second-font;
+        font-weight: 300;
+        font-style: italic;
+        color: $text-color;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+    &-author{
+        font-size: 2.4rem;
+        font-family: $third-font;
+        padding-left: 7rem;
+        position: relative;
+        &::before{
+            content: "";
+            @include absoluteCenter("top");
+            left: 0;
+            @include size(6rem,4px);
+            background-color: $primary-color;
+        }
+    }
+    .slick-initialized .slick-slide{
+        display: flex;
+    }
+    .slick-arrow{
+        outline: none;
+        padding:1.5rem;
+        font-size: 3rem;
+        color: $text-color;
+        cursor: pointer;
+        background-color: $gray-color;
+        border: 0;
+      @include absoluteCenter("top");
+      z-index: 10;
+    }
+    .slick-prev{
+        left: 0;
+    }
+    .slick-next{
+        right: 0;
+    }
+    @include maxWidth(767px){
+        &-content{
+            padding: 0;
+            flex-direction: column;
+        }
+        &-icon, &-image{
+            margin-right: 0;
+            margin-bottom: 3rem;
+            
+        }
+        &-icon{
+            @include size(10rem);
+            img{
+                max-width: 50%;
+            }
+        }
+        &-image{
+            @include size(15rem);
+        }
+    }
+}

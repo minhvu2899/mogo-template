@@ -1,0 +1,226 @@
+.header{
+    min-height: 100rem;
+    color: white;
+    background: linear-gradient(to bottom ,rgba($primary-color,0.8), rgba($second-color,0.8)),
+                url(../images/img-header-bg.jpg) no-repeat center /cover;
+    &-top{
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-top: 3rem;
+    }
+    &-logo{
+        font-size: 3rem;
+        font-weight: bold;
+        color: white;
+    }
+    &-menu{
+        display: flex;
+    
+    }
+   
+    &-toggle{
+        display: none;
+        font-size: 3rem;
+    }
+    &-menu-link{
+        color: white;
+        text-transform: uppercase;
+        display: inline-block;
+        transition: all 0.25s linear;
+    }
+    &-menu-icon{
+        color:white
+    }
+    &-content{
+        padding-top: 17rem;
+        max-width: 80rem;
+        text-align: center;
+        margin: 0 auto;
+    }
+    &-content-caption{
+        font-size: 7.2rem;
+        font-family: $third-font;
+        padding-bottom: 4rem;
+    }
+    &-content-main{
+        font-size: 15rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 5.5rem;
+        margin-bottom: 5rem;
+        
+    }
+    &-content-main::after{
+        content: "";
+        @include absoluteCenter("left");
+        width: 6rem;
+        height: 0.5rem;
+        bottom:0;
+        background-color: #fff;
+
+    }
+    &-content-more{
+        color: #fff;
+        text-transform: uppercase;
+        padding: 1rem 2.7rem;
+        border: 0.5rem solid currentColor;
+        display: inline-block;
+        cursor: pointer;
+    }
+    &-bottom{
+        margin-top: 15.5rem;
+        padding-bottom: 2.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -3rem;
+        &-item{
+            padding-top: 2.5rem;
+            border-top: 0.5rem solid white;
+            width: calc(25% - 3rem);
+            margin-left: 3rem;
+            opacity: 0.6;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.25s linear;
+            &::after{
+                content: "";
+                position: absolute;
+                @include size(7rem,0.5rem);
+                background-color: $primary-color;
+                top:0;
+                left: 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.25s linear;
+            }    
+        }
+        &-item:hover{
+
+            &::after{
+                opacity: 1;
+            }
+        }
+        &-item.is-active{
+            opacity: 1;
+            &::after{
+                opacity: 1;
+            }
+            
+
+        }
+        &-text{
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-left: 1rem;
+        }
+        &-number{
+            font-size: 2.4rem;
+            font-weight: bold;
+        }
+    }
+    @include maxWidth(1023px){
+        min-height: unset;
+     
+        .header-bottom{
+            margin-top: 10rem;
+        }
+        .header-content{
+            padding-top: 10rem;
+        }
+        .header-content-main{
+            font-size: 10rem;
+        }
+    }
+    @include minWidth(768px){
+        .header-menu-item{
+            &:not(:first-child){
+
+                margin-left: 5.6rem;
+            }
+          
+        }
+        &-menu-link{
+            padding-bottom: 1rem;
+            border-bottom: 4px solid transparent;
+            &:hover{
+                border-bottom: 4px solid $second-color;
+                color:$second-color;
+            }
+        }
+    }
+    @include maxWidth(767px){
+      
+        .header-bottom-text{
+            display: none;
+        }
+        .header-content-caption{
+            font-size: 3rem;
+            padding-bottom: 1.5rem;
+        }
+        .header-content{
+            padding-top: 4rem;
+        }
+        .header-content-main{
+            font-size: 6rem;
+            padding-bottom: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        .header-bottom{
+            margin-top: 5rem;
+        }
+        .header-bottom-item{
+            padding-left: 1rem;
+            text-align: center;
+        }
+        .header-bottom-item::after{
+            width: 40%;
+        }
+        .header-menu{
+            position: fixed;
+            top:0;
+            bottom: 0;
+            right:0;
+            width: 300px;
+            padding: 2rem 2.5rem;
+            display: inline-block;
+            background-color: #fff;
+            z-index: 10;
+            transform: translateX(100%);
+            transition: all 0.25s linear;
+        }
+        .header-menu-item{
+            margin-bottom: 1rem;
+          
+        }
+        .header-menu-icon{
+            color: $title-color;
+            padding: 1.5rem;
+            display: block;
+            &:hover{
+                background-color:$primary-color;
+                color: #fff;
+            }
+        }
+        .header-menu-link{
+            color: $title-color;
+            padding: 1.5rem;
+            border-radius: 4px;
+            width: 100%;
+            transition: all 0.25s linear;
+            &:hover{
+                background-color: $second-color;
+                color: #fff;
+
+            }
+        }
+        .header-toggle{
+            display: inline-block;
+            align-self: center;
+        }
+        &-menu.is-toggle{
+            transform: translateX(0);
+        }
+    }
+}

@@ -1,0 +1,122 @@
+.story{
+    padding: 10rem 0;
+    &-title{
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 1.5rem 0;
+    }
+    &-media{
+        position: relative;
+       
+    }
+    &-img{
+        width: 100%;
+        height: 16rem;
+        object-fit: cover;
+    }
+    &-date{
+        position: absolute;
+        bottom:1rem;
+        left: -1rem;
+        padding: 1.5rem;
+        background-color:$third-color;
+        color: white;
+        @include flexbox(center,center,column);
+        &-number{
+            font-size: 3rem;
+            font-weight: bold;
+           
+        }
+        &-text{
+            font-size: 1.5rem;
+        }
+    }
+    &-desc{
+        font-family: $second-font;
+        color: $text-color;
+        line-height: 1.4;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid $gray-dark-color
+    }
+    &-list{
+        @include flexbox(stretch,space-between);
+    }
+    &-item{
+        width: calc(33.33% - 2rem);
+    }
+    &-meta{
+        @include  flexbox();
+        &-item{
+            margin-right: 2rem;
+        }
+        &-icon{
+            color: $third-color;
+            margin-right: 1rem;
+        }
+        &-number{
+            color: $text-color;
+        }
+    }
+    @include maxWidth(1023px){
+        padding: 5rem 0;
+        &-img{
+            height: 14rem;
+        }
+        &-date{
+            padding: 1rem;
+        }
+        &-title{
+            font-size: 1.2rem;
+        }
+        &-desc{
+            font-size: 1.3rem;
+        }
+        &-desc-text{
+            @include textClamp(3);
+        }
+    }
+    @include maxWidth(767px){
+        padding: 5rem 0;
+        &-list{
+            display: block;
+        }
+        &-item{
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+        &-img{
+            height: 21rem;
+        }
+        &-date{
+            padding: 1rem;
+        }
+    }
+}
+
+.map{
+   
+    background: linear-gradient(to bottom, rgba(white,0.7),rgba(white,0.6)),url("../images/img-map.png") no-repeat center/cover;    
+    padding: 6rem 0;
+    &-content{   
+        @include flexbox(center,center,column)
+    }
+    &-heading{
+        position: relative;
+        margin-top: 1.5rem;
+        text-transform: uppercase;
+        color: $primary-color;
+        font-size: 2.4rem;
+        font-weight: bold;
+        padding-bottom: 2rem;
+        &::after{
+            content: "";
+            @include absoluteCenter("left");
+            @include size(6rem,0.5rem);
+            bottom: 0;
+           
+            background-color:$primary-color;
+        }
+    }
+    
+}

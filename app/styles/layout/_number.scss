@@ -1,0 +1,52 @@
+.number{
+    background-color: $third-color;
+    color: #fff;
+    text-transform: uppercase;
+    &-list{
+        @include flexbox();
+    }
+    &-item{
+        padding: 8rem 3rem;
+        border-left: 1px solid #fff;
+        width: 20%;
+        text-align: center;
+    }
+    &-item:last-child{
+        border-right: 1px solid #fff;
+    }
+    &-item-count{
+        font-size: 7.2rem;
+        font-weight: bold;
+        margin-bottom: 3rem;
+    }
+    &-item-text{
+        line-height: 1.4;
+    }
+    @include maxWidth(1023px){
+        &-item{
+            padding: 4rem 1.5rem;
+        }
+        &-item-count{
+            font-size: 5rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+    }
+    @include maxWidth(767px){
+        &-list{
+            display: block;
+        }
+        &-item{
+            width: 100%;
+            border-left: 0;
+            padding: 2.5rem 1.5rem;
+        }
+        &-item:not(:last-child){
+            border-bottom: 1px solid #fff;
+
+        }
+        &-item:last-child{
+            border-right:0;
+        }
+    }
+}

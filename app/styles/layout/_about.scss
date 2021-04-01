@@ -1,0 +1,34 @@
+.about{
+    padding-top: 9rem;
+    padding-bottom: 11rem;
+    background-color: #fff;
+    &-list{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -3rem;
+    }
+    &-item{
+        margin-left: 3rem;
+        width: calc(33.33% - 3rem);
+       
+    }
+   
+   
+    &-icon{
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    &-text{
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+    @include maxWidth(767px){
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        &-list{
+            @include touchSlider();
+        }
+    
+    }
+}
+@include hoverEffect(".about-item",".about-content");

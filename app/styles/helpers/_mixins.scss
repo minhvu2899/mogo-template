@@ -1,0 +1,117 @@
+@mixin size($width, $height:$width){
+    width: $width;
+    height: $height;
+}
+@mixin flexbox($align-item:stretch,$justify-content:flex-start,$flex-direction:row,$flex-wrap:nowrap,$flex:flex){
+    display: $flex;
+    align-items: $align-item;
+    justify-content: $justify-content;
+    flex-direction: $flex-direction;
+    flex-wrap: $flex-wrap;
+
+}
+@mixin minWidth($breakpoint){
+    @media screen and (min-width:$breakpoint) {
+        @content
+    }
+}
+
+
+@mixin absoluteCenter($direction:"left"){
+    position: absolute;
+    @if $direction =="left"{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    @if $direction =="top"{
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    @if $direction =="both"{
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
+@mixin absoluteFull(){
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+@mixin maxWidth($breakpoint){
+    @media screen and (max-width:$breakpoint) {
+        @content
+    }
+}
+
+@mixin hoverEffect($itemClass,$contentClass,$tranform:"true"){
+    #{$itemClass}{
+        position: relative;
+        z-index: 1;
+        transition: all 0.25s linear;
+        @if $tranform == "true" {
+            &::before{
+                content: "";
+                @include absoluteFull();
+                background-color: $third-color;
+                z-index: -1;
+                transform: translate(1rem,1rem);
+                opacity: 0;
+            }
+        }
+        &:hover{
+            @if $tranform == "true" {
+                transform: translate(-1rem,-1rem);
+                &::before{
+                    opacity: 1;
+                }
+            }
+            #{$contentClass}{
+                opacity: 1;
+            }
+        }
+        #{$contentClass}{
+            @include absoluteFull();
+            background-image: linear-gradient(to bottom, rgba($primary-color,0.8),rgba($second-color,0.8));
+            color: #fff;
+            @include flexbox(center,center,column);
+            text-transform: uppercase;
+            opacity: 0;
+        }
+    }
+}
+@mixin textClamp($row: 1, $size:100%){
+    display: -webkit-box;
+    -webkit-line-clamp: $row;
+    -webkit-box-orient: vertical;
+    white-space: pre-wrap;
+    word-break: break-word;
+    width: $size;
+    max-width: $size;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+@mixin touchSlider($width:80%, $padding:1rem,$size:300px){
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: $padding;
+    @include hideScroll();
+    & >*{
+        scroll-snap-align: start;
+        width: $width;
+        flex: 0 0 $size ;
+        padding: $padding;
+        
+    }
+}
+@mixin hideScroll(){
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}

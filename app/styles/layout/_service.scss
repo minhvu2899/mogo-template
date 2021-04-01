@@ -1,0 +1,54 @@
+.service{
+    margin-top: 10rem;
+    margin-bottom: 11rem;
+    &-list{
+        @include flexbox(stretch,space-between);
+        margin-top: 6.5rem;
+        
+    }
+    &-list:first-of-type{
+        padding-bottom: 5rem;
+        margin-bottom: 5rem;
+        border-bottom: 1px solid $gray-dark-color;
+        
+    }
+    &-item{
+        @include flexbox(flex-start,space-around);
+        width:calc(33.33% - 2.7rem);
+
+    }
+    &-item-icon{
+       width: 3.5rem;
+        margin:0 3rem;
+       
+    }
+    &-item-info{
+        width: calc(100% - 9.5rem);
+        
+    }
+    &-item-title{
+        color: $title-color;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      
+    }
+    &-item-desc{
+        color: $text-color;
+        line-height: 1.6;
+        font-family: $second-font;
+    }   
+    @include maxWidth(1023px){
+        margin-top: 6rem;
+        &-list{
+            display: block;
+        }
+        &-item{
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+        &-item-title{
+            margin-bottom: 1rem;
+        }
+    }
+}
