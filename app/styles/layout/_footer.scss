@@ -132,6 +132,7 @@
             color: $primary-color;
         }
     }
+
     @include maxWidth(1023px){
         &-top{
             display: block;
@@ -142,5 +143,17 @@
             width: 100%;
             margin-bottom: 3rem;
         }
+    }
+}
+#scrollTop{
+    padding:  1.5rem;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 5rem;
+    z-index: 10;
+    display:none;
+    right: 0;
+    i{
+        font-size:2rem;
     }
 }

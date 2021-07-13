@@ -1,4 +1,5 @@
 .work{
+    padding-top: 7rem;
     &-list{
         @include flexbox();
         @include hoverEffect(".work-item",".work-content","false");

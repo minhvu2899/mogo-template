@@ -1,5 +1,5 @@
 .service{
-    margin-top: 10rem;
+    padding-top: 10rem;
     margin-bottom: 11rem;
     &-list{
         @include flexbox(stretch,space-between);

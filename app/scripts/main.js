@@ -18,6 +18,10 @@ $(document).ready(function () {
 const headerToggle= document.querySelector('.header-toggle');
 console.log(headerToggle);
 const headerMenu = document.querySelector('.header-menu');
+const headerTop = document.querySelector('.header-top');
+const headerMenuItem = document.querySelectorAll('.header-menu-link');
+const btnscrollTop = document.getElementById('scrollTop');
+console.log(btnscrollTop);
 console.log(headerMenu);
 const expanToggle ='is-toggle';
 headerToggle.addEventListener("click",()=> {
@@ -31,3 +35,36 @@ window.addEventListener("click",function(e){
        console.log('da xoas');
    }
 })
+
+window.addEventListener("scroll",function(){
+    console.log(window.pageYOffset);
+    const headerTopHeight = headerTop.offsetTop;
+    if(window.pageYOffset > headerTopHeight){
+      headerTop.classList.add('header-top-fixed');
+    }
+    else{
+      headerTop.classList.remove('header-top-fixed');
+    }
+    if(window.pageYOffset > 1000){
+      btnscrollTop.style.display="block";
+    }
+    else{
+      btnscrollTop.style.display="none";
+    }
+   
+    
+})
+btnscrollTop.addEventListener('click', function(){
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+})
+console.log(headerMenuItem);
+headerMenuItem.forEach(element => {
+      element.addEventListener('click',function(){
+          headerMenuItem.forEach(e=>{
+            e.classList.remove('menu-active');
+          })
+          element.classList.add('menu-active');
+      })
+     
+});
